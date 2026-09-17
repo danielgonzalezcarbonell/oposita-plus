@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Constitución Española | OPOSITA+</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #172033;
+}
+
+header {
+    background: white;
+    padding: 22px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.intro {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #667085;
+    line-height: 1.6;
+}
+
+.question {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.question h2 {
+    font-size: 19px;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.option {
+    display: block;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #f1f5ff;
+    border-color: #2563eb;
+}
+
+.option input {
+    margin-right: 10px;
+}
+
+.correct {
+    background: #dcfce7 !important;
+    border-color: #22c55e !important;
+}
+
+.incorrect {
+    background: #fee2e2 !important;
+    border-color: #ef4444 !important;
+}
+
+.explanation {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 10px;
+    color: #475467;
+    line-height: 1.5;
+}
+
+button {
+    width: 100%;
+    padding: 17px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+#result {
+    display: none;
+    background: white;
+    padding: 30px;
+    margin-top: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.score {
+    font-size: 42px;
+    font-weight: 800;
+    color: #2563eb;
+    margin: 15px 0;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 26px;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">OPOSITA<span>+</span></div>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <h1>Test Constitución Española</h1>
+        <p class="subtitle">
+            10 preguntas de dificultad alta sobre la Constitución Española de 1978.
+            Selecciona una respuesta en cada pregunta y pulsa
+            <strong>Corregir test</strong> al finalizar.
+        </p>
+        <p><strong>10 preguntas · 4 opciones · 1 respuesta correcta</strong></p>
+    </div>
+
+    <form id="quiz">
+
+        <div class="question">
+            <h2>1. ¿Cuál de los siguientes principios NO aparece expresamente garantizado en el artículo 9.3 de la Constitución Española?</h2>
+
+            <label class="option"><input type="radio" name="q1" value="a"> a) La publicidad de las normas.</label>
+            <label class="option"><input type="radio" name="q1" value="b"> b) La irretroactividad de las disposiciones sancionadoras no favorables.</label>
+            <label class="option"><input type="radio" name="q1" value="c"> c) La seguridad jurídica.</label>
+            <label class="option"><input type="radio" name="q1" value="d"> d) La separación de poderes.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: d)</strong><br>
+                El artículo 9.3 garantiza, entre otros, la legalidad, jerarquía normativa,
+                publicidad de las normas, irretroactividad, seguridad jurídica,
+                responsabilidad e interdicción de la arbitrariedad. La separación de
+                poderes no aparece expresamente en este apartado.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>2. Según el artículo 14, ¿cuál reproduce correctamente la cláusula constitucional de igualdad?</h2>
+
+            <label class="option"><input type="radio" name="q2" value="a"> a) Todos los ciudadanos son iguales ante la ley.</label>
+            <label class="option"><input type="radio" name="q2" value="b"> b) Los españoles son iguales ante la ley, sin que pueda prevalecer discriminación alguna por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social.</label>
+            <label class="option"><input type="radio" name="q2" value="c"> c) Todos los españoles tendrán los mismos derechos y obligaciones.</label>
+            <label class="option"><input type="radio" name="q2" value="d"> d) Los ciudadanos españoles son iguales ante la ley sin distinción económica.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: b)</strong><br>
+                Es la formulación que recoge el artículo 14 de la Constitución,
+                incluyendo expresamente las causas de discriminación mencionadas y
+                la cláusula final de cualquier otra condición o circunstancia personal o social.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>3. Respecto al estado de alarma, ¿cuál es correcta?</h2>
+
+            <label class="option"><input type="radio" name="q3" value="a"> a) Lo declara el Rey por un máximo de 30 días.</label>
+            <label class="option"><input type="radio" name="q3" value="b"> b) Lo declara el Gobierno mediante decreto acordado en Consejo de Ministros, por un plazo máximo de 15 días.</label>
+            <label class="option"><input type="radio" name="q3" value="c"> c) Lo declara el Congreso por mayoría absoluta.</label>
+            <label class="option"><input type="radio" name="q3" value="d"> d) Lo declara el Presidente del Gobierno por un máximo de 15 días.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: b)</strong><br>
+                El artículo 116.2 establece que el estado de alarma será declarado por
+                el Gobierno mediante decreto acordado en Consejo de Ministros por un
+                plazo máximo de quince días.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>4. El Defensor del Pueblo es:</h2>
+
+            <label class="option"><input type="radio" name="q4" value="a"> a) Un órgano dependiente del Gobierno.</label>
+            <label class="option"><input type="radio" name="q4" value="b"> b) El alto comisionado de las Cortes Generales para la defensa de los derechos comprendidos en el Título I.</label>
+            <label class="option"><input type="radio" name="q4" value="c"> c) Un órgano del Tribunal Constitucional.</label>
+            <label class="option"><input type="radio" name="q4" value="d"> d) Un órgano dependiente del Consejo General del Poder Judicial.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: b)</strong><br>
+                El artículo 54 define al Defensor del Pueblo como alto comisionado de
+                las Cortes Generales para la defensa de los derechos comprendidos en el Título I.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>5. En la primera votación de investidura del Presidente del Gobierno se requiere:</h2>
+
+            <label class="option"><input type="radio" name="q5" value="a"> a) Mayoría simple.</label>
+            <label class="option"><input type="radio" name="q5" value="b"> b) Mayoría de tres quintos.</label>
+            <label class="option"><input type="radio" name="q5" value="c"> c) Mayoría absoluta.</label>
+            <label class="option"><input type="radio" name="q5" value="d"> d) Mayoría de dos tercios.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: c)</strong><br>
+                El artículo 99.3 establece que el candidato necesita obtener en primera
+                votación la mayoría absoluta del Congreso de los Diputados.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>6. ¿Cuál de los siguientes derechos NO puede ser objeto del recurso de amparo constitucional conforme al artículo 53.2?</h2>
+
+            <label class="option"><input type="radio" name="q6" value="a"> a) Derecho a la igualdad.</label>
+            <label class="option"><input type="radio" name="q6" value="b"> b) Libertad ideológica y religiosa.</label>
+            <label class="option"><input type="radio" name="q6" value="c"> c) Derecho a la protección de la salud.</label>
+            <label class="option"><input type="radio" name="q6" value="d"> d) Derecho a la libertad y seguridad.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: c)</strong><br>
+                El recurso de amparo protege los derechos reconocidos en el artículo 14
+                y la Sección primera del Capítulo segundo del Título I, además de la
+                objeción de conciencia del artículo 30.2. El artículo 43, relativo a la
+                protección de la salud, pertenece al Capítulo tercero.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>7. Los miembros del Gobierno son nombrados y separados:</h2>
+
+            <label class="option"><input type="radio" name="q7" value="a"> a) Por el Congreso de los Diputados.</label>
+            <label class="option"><input type="radio" name="q7" value="b"> b) Por el Rey, a propuesta de su Presidente.</label>
+            <label class="option"><input type="radio" name="q7" value="c"> c) Por el Presidente del Congreso.</label>
+            <label class="option"><input type="radio" name="q7" value="d"> d) Por el Tribunal Constitucional.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: b)</strong><br>
+                El artículo 100 establece que los demás miembros del Gobierno serán
+                nombrados y separados por el Rey, a propuesta de su Presidente.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>8. Conforme al procedimiento ordinario de reforma constitucional del artículo 167:</h2>
+
+            <label class="option"><input type="radio" name="q8" value="a"> a) Siempre es necesaria la aprobación por mayoría absoluta de ambas Cámaras.</label>
+            <label class="option"><input type="radio" name="q8" value="b"> b) Como regla general, se exige una mayoría de tres quintos de cada Cámara.</label>
+            <label class="option"><input type="radio" name="q8" value="c"> c) Siempre debe celebrarse referéndum obligatorio.</label>
+            <label class="option"><input type="radio" name="q8" value="d"> d) Basta con mayoría simple del Congreso.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: b)</strong><br>
+                El artículo 167 establece como regla general la aprobación por mayoría
+                de tres quintos de cada Cámara, contemplando además mecanismos para
+                resolver determinados desacuerdos entre Congreso y Senado.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>9. ¿Cuál de las siguientes es una función constitucional del Rey?</h2>
+
+            <label class="option"><input type="radio" name="q9" value="a"> a) Sancionar y promulgar las leyes.</label>
+            <label class="option"><input type="radio" name="q9" value="b"> b) Aprobar los Presupuestos Generales del Estado.</label>
+            <label class="option"><input type="radio" name="q9" value="c"> c) Elegir directamente al Presidente del Gobierno.</label>
+            <label class="option"><input type="radio" name="q9" value="d"> d) Aprobar los reglamentos del Gobierno.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: a)</strong><br>
+                El artículo 62.a establece entre las funciones del Rey sancionar y
+                promulgar las leyes.
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>10. Según la Constitución Española, ¿qué afirmación sobre los municipios es correcta?</h2>
+
+            <label class="option"><input type="radio" name="q10" value="a"> a) Carecen de autonomía constitucional.</label>
+            <label class="option"><input type="radio" name="q10" value="b"> b) Gozan de personalidad jurídica plena y sus gobiernos corresponden a los Ayuntamientos.</label>
+            <label class="option"><input type="radio" name="q10" value="c"> c) Sus alcaldes son nombrados directamente por el Gobierno.</label>
+            <label class="option"><input type="radio" name="q10" value="d"> d) Dependen jerárquicamente de las Comunidades Autónomas.</label>
+
+            <div class="explanation">
+                <strong>Respuesta correcta: b)</strong><br>
+                El artículo 140 garantiza la autonomía de los municipios, que gozan de
+                personalidad jurídica plena. Su gobierno y administración corresponde
+                a sus respectivos Ayuntamientos.
+            </div>
+        </div>
+
+        <button type="button" onclick="corregir()">Corregir test</button>
+
+    </form>
+
+    <div id="result">
+        <h2>Resultado</h2>
+        <div class="score" id="score"></div>
+        <p id="message"></p>
+
+        <button type="button" onclick="location.reload()">
+            Repetir test
+        </button>
+    </div>
+
+</div>
+
+<script>
+
+function corregir() {
+
+    const respuestas = {
+        q1: "d",
+        q2: "b",
+        q3: "b",
+        q4: "b",
+        q5: "c",
+        q6: "c",
+        q7: "b",
+        q8: "b",
+        q9: "a",
+        q10: "b"
+    };
+
+    let puntuacion = 0;
+    let contestadas = 0;
+
+    for (let i = 1; i <= 10; i++) {
+
+        const seleccionada =
+            document.querySelector('input[name="q' + i + '"]:checked');
+
+        const pregunta =
+            document.querySelectorAll(".question")[i - 1];
+
+        const opciones =
+            pregunta.querySelectorAll(".option");
+
+        const explicacion =
+            pregunta.querySelector(".explanation");
+
+        if (seleccionada) {
+            contestadas++;
+
+            if (seleccionada.value === respuestas["q" + i]) {
+                puntuacion++;
+            }
+        }
+
+        opciones.forEach(opcion => {
+
+            const input = opcion.querySelector("input");
+
+            if (input.value === respuestas["q" + i]) {
+                opcion.classList.add("correct");
+            }
+
+            if (seleccionada && input.value === seleccionada.value &&
+                seleccionada.value !== respuestas["q" + i]) {
+                opcion.classList.add("incorrect");
+            }
+
+            input.disabled = true;
+        });
+
+        explicacion.style.display = "block";
+    }
+
+    if (contestadas < 10) {
+        alert("Debes responder las 10 preguntas antes de corregir el test.");
+        return;
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("score").textContent =
+        puntuacion + " / 10";
+
+    let mensaje = "";
+
+    if (puntuacion === 10) {
+        mensaje = "¡Excelente! Dominio muy alto del tema.";
+    } else if (puntuacion >= 8) {
+        mensaje = "Muy buen resultado. Sigue repasando los detalles.";
+    } else if (puntuacion >= 5) {
+        mensaje = "Buen punto de partida. Conviene reforzar algunos conceptos.";
+    } else {
+        mensaje = "Conviene repasar la Constitución y volver a intentarlo.";
+    }
+
+    document.getElementById("message").textContent = mensaje;
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
