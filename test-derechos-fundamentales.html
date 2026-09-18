@@ -1,0 +1,1124 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Test 02 — Derechos fundamentales | OPOSITA+</title>
+
+<meta name="description" content="Test gratuito de 10 preguntas sobre derechos fundamentales y libertades públicas de la Constitución Española. Nivel alto de oposición.">
+
+<style>
+:root{
+    --blue:#111827;
+    --blue-light:#2563eb;
+    --green:#16a34a;
+    --red:#dc2626;
+    --gray:#f5f7fa;
+    --border:#e5e7eb;
+    --text:#111827;
+    --muted:#6b7280;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--gray);
+    color:var(--text);
+    line-height:1.6;
+}
+
+.container{
+    width:min(900px,92%);
+    margin:0 auto;
+}
+
+/* HEADER */
+
+header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:20px 0;
+}
+
+.header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    text-decoration:none;
+    color:#111827;
+}
+
+.logo span{
+    color:var(--blue-light);
+}
+
+.back{
+    color:var(--blue-light);
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+    padding:55px 0 30px;
+}
+
+.eyebrow{
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    color:var(--blue-light);
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:42px;
+    line-height:1.1;
+    margin:0 0 15px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    margin:0;
+}
+
+/* TEST INFO */
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+.info-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+}
+
+.info-card strong{
+    display:block;
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:4px;
+}
+
+.info-card span{
+    font-weight:700;
+}
+
+/* PROGRESS */
+
+.progress-box{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:25px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.progress-info strong{
+    color:var(--blue-light);
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#e5e7eb;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+#progress-fill{
+    width:0%;
+    height:100%;
+    background:var(--blue-light);
+    border-radius:999px;
+    transition:width .3s ease;
+}
+
+/* QUESTIONS */
+
+.question-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:22px;
+}
+
+.question-number{
+    font-size:13px;
+    font-weight:800;
+    color:var(--blue-light);
+    margin-bottom:8px;
+}
+
+.question-card h2{
+    font-size:20px;
+    line-height:1.4;
+    margin:0 0 20px;
+}
+
+.option{
+    display:block;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 16px;
+    margin:10px 0;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#9ca3af;
+    background:#f9fafb;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+}
+
+/* EXPLANATION */
+
+.explanation{
+    display:none;
+    margin-top:15px;
+    padding:14px 16px;
+    border-radius:10px;
+    background:#f3f4f6;
+    color:#374151;
+    font-size:14px;
+}
+
+.explanation.show{
+    display:block;
+}
+
+/* BUTTON */
+
+.actions{
+    text-align:center;
+    margin:35px 0;
+}
+
+button{
+    border:0;
+    border-radius:12px;
+    background:#111827;
+    color:#fff;
+    padding:15px 28px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:#2563eb;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* RESULT */
+
+#result{
+    display:none;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    margin:35px 0 60px;
+}
+
+#result h2{
+    margin-top:0;
+    font-size:28px;
+}
+
+.score{
+    font-size:52px;
+    font-weight:800;
+    margin:10px 0;
+}
+
+#percentage{
+    font-size:22px;
+    font-weight:700;
+    color:var(--blue-light);
+}
+
+#details{
+    color:var(--muted);
+}
+
+#message{
+    font-weight:700;
+    margin:20px 0;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:#fff;
+    padding:35px 0;
+    text-align:center;
+}
+
+footer p{
+    color:#9ca3af;
+    margin:8px 0 0;
+}
+
+footer a{
+    color:#fff;
+    text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    .question-card{
+        padding:20px;
+    }
+
+    .question-card h2{
+        font-size:18px;
+    }
+
+    .header-inner{
+        align-items:flex-start;
+    }
+
+    .back{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a class="logo" href="https://danielgonzalezcarbonell.github.io/oposita-plus/">
+            OPOSITA<span>+</span>
+        </a>
+
+        <a class="back" href="https://danielgonzalezcarbonell.github.io/oposita-plus/">
+            ← Volver a OPOSITA+
+        </a>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="eyebrow">TEST 02 · DERECHOS FUNDAMENTALES</div>
+
+        <h1>Derechos fundamentales</h1>
+
+        <p>
+            10 preguntas de nivel alto sobre los derechos fundamentales
+            y libertades públicas de la Constitución Española.
+        </p>
+    </section>
+
+    <section class="info">
+
+        <div class="info-card">
+            <strong>PREGUNTAS</strong>
+            <span>10 preguntas</span>
+        </div>
+
+        <div class="info-card">
+            <strong>DIFICULTAD</strong>
+            <span>Alta</span>
+        </div>
+
+        <div class="info-card">
+            <strong>TEMA</strong>
+            <span>Arts. 14–29 CE</span>
+        </div>
+
+    </section>
+
+    <div class="progress-box">
+
+        <div class="progress-info">
+            <span>Progreso del test</span>
+            <strong id="progress-text">0 / 10</strong>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+
+    </div>
+
+    <form id="quiz">
+
+        <!-- PREGUNTA 1 -->
+
+        <div class="question-card" data-question="1">
+
+            <div class="question-number">PREGUNTA 01</div>
+
+            <h2>
+                Según el artículo 14 de la Constitución, los españoles son
+                iguales ante la ley, sin que pueda prevalecer discriminación
+                alguna por razón de:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q1" value="a">
+                A) Nacimiento, raza, sexo, religión, opinión o cualquier otra
+                condición o circunstancia personal o social.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="b">
+                B) Nacimiento, raza, sexo, religión, opinión o cualquier otra
+                condición o circunstancia personal o económica.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="c">
+                C) Nacimiento, origen, sexo, religión, opinión o cualquier otra
+                condición o circunstancia personal o social.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="d">
+                D) Nacimiento, raza, sexo, ideología, opinión o cualquier otra
+                condición o circunstancia personal o social.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 14 establece literalmente la igualdad ante la ley
+                y enumera, entre otros, nacimiento, raza, sexo, religión y
+                opinión, además de cualquier otra condición o circunstancia
+                personal o social.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 2 -->
+
+        <div class="question-card" data-question="2">
+
+            <div class="question-number">PREGUNTA 02</div>
+
+            <h2>
+                De acuerdo con el artículo 15 de la Constitución,
+                ¿cuál de los siguientes derechos se reconoce expresamente?
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q2" value="a">
+                A) Derecho a la integridad moral exclusivamente.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="b">
+                B) Derecho a la vida y a la integridad física y moral.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="c">
+                C) Derecho a la integridad física, pero no moral.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="d">
+                D) Derecho a la vida únicamente.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 15 reconoce expresamente el derecho a la vida y a
+                la integridad física y moral, además de prohibir la tortura y
+                las penas o tratos inhumanos o degradantes.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 3 -->
+
+        <div class="question-card" data-question="3">
+
+            <div class="question-number">PREGUNTA 03</div>
+
+            <h2>
+                Nadie podrá ser obligado a declarar sobre su ideología,
+                religión o creencias, según establece:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q3" value="a">
+                A) El artículo 14.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="b">
+                B) El artículo 16.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="c">
+                C) El artículo 18.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="d">
+                D) El artículo 20.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 16.2 dispone que nadie podrá ser obligado a
+                declarar sobre su ideología, religión o creencias.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 4 -->
+
+        <div class="question-card" data-question="4">
+
+            <div class="question-number">PREGUNTA 04</div>
+
+            <h2>
+                La entrada en un domicilio sin consentimiento del titular
+                podrá efectuarse:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q4" value="a">
+                A) Siempre que exista una orden administrativa.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="b">
+                B) Únicamente mediante autorización judicial.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="c">
+                C) Con consentimiento del titular, resolución judicial o en
+                caso de flagrante delito.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="d">
+                D) Cuando lo considere necesario cualquier autoridad pública.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 18.2 establece que el domicilio es inviolable y
+                que ninguna entrada o registro podrá hacerse sin consentimiento
+                del titular o resolución judicial, salvo en caso de flagrante
+                delito.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 5 -->
+
+        <div class="question-card" data-question="5">
+
+            <div class="question-number">PREGUNTA 05</div>
+
+            <h2>
+                Según el artículo 20 de la Constitución, el derecho a expresar
+                y difundir libremente los pensamientos, ideas y opiniones
+                mediante la palabra, el escrito o cualquier otro medio de
+                reproducción corresponde:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q5" value="a">
+                A) Exclusivamente a los españoles.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="b">
+                B) A todas las personas.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="c">
+                C) Exclusivamente a los mayores de edad.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="d">
+                D) Únicamente a quienes ejerzan una profesión relacionada con
+                la comunicación.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 20.1.a reconoce a todas las personas el derecho
+                a expresar y difundir libremente pensamientos, ideas y
+                opiniones mediante la palabra, el escrito o cualquier otro
+                medio de reproducción.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 6 -->
+
+        <div class="question-card" data-question="6">
+
+            <div class="question-number">PREGUNTA 06</div>
+
+            <h2>
+                ¿Cuál de los siguientes derechos NO figura entre los derechos
+                susceptibles de suspensión en los estados de excepción o de
+                sitio, conforme al artículo 55.1 de la Constitución?
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q6" value="a">
+                A) Derecho a la libertad y seguridad del artículo 17.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="b">
+                B) Derecho de reunión del artículo 21.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="c">
+                C) Derecho a la tutela judicial efectiva del artículo 24.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="d">
+                D) Derecho a la inviolabilidad del domicilio del artículo 18.2.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 55.1 enumera determinados derechos que pueden ser
+                suspendidos cuando se acuerde el estado de excepción o de
+                sitio. El artículo 24 no aparece en esa enumeración.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 7 -->
+
+        <div class="question-card" data-question="7">
+
+            <div class="question-number">PREGUNTA 07</div>
+
+            <h2>
+                Según el artículo 24 de la Constitución, todas las personas
+                tienen derecho:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q7" value="a">
+                A) A obtener tutela efectiva de los jueces y tribunales en el
+                ejercicio de sus derechos e intereses legítimos, sin que pueda
+                producirse indefensión.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="b">
+                B) A obtener siempre una sentencia favorable cuando ejerciten
+                una acción judicial.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="c">
+                C) A disponer de asistencia jurídica gratuita en cualquier
+                procedimiento, con independencia de sus recursos.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="d">
+                D) A recurrir todas las resoluciones judiciales ante el
+                Tribunal Constitucional.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 24.1 reconoce el derecho a obtener tutela efectiva
+                de jueces y tribunales en el ejercicio de derechos e intereses
+                legítimos, sin que pueda producirse indefensión.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 8 -->
+
+        <div class="question-card" data-question="8">
+
+            <div class="question-number">PREGUNTA 08</div>
+
+            <h2>
+                El artículo 27 de la Constitución establece que:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q8" value="a">
+                A) La enseñanza básica es voluntaria y gratuita.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="b">
+                B) La enseñanza básica es obligatoria y gratuita.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="c">
+                C) Toda enseñanza debe ser gratuita.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="d">
+                D) Únicamente la enseñanza primaria será obligatoria.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 27.4 establece expresamente que la enseñanza básica
+                es obligatoria y gratuita.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 9 -->
+
+        <div class="question-card" data-question="9">
+
+            <div class="question-number">PREGUNTA 09</div>
+
+            <h2>
+                ¿Cuál de los siguientes derechos está expresamente reconocido
+                en el artículo 28 de la Constitución?
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q9" value="a">
+                A) Derecho de sindicación libre, con las excepciones que pueda
+                establecer la ley.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="b">
+                B) Derecho de huelga únicamente para los funcionarios públicos.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="c">
+                C) Derecho de asociación política.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="d">
+                D) Derecho a la negociación colectiva exclusivamente.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 28.1 reconoce el derecho de todos a sindicarse
+                libremente, aunque permite que la ley limite o exceptúe su
+                ejercicio para determinados colectivos.
+            </div>
+
+        </div>
+
+
+        <!-- PREGUNTA 10 -->
+
+        <div class="question-card" data-question="10">
+
+            <div class="question-number">PREGUNTA 10</div>
+
+            <h2>
+                Respecto del derecho de petición reconocido en el artículo 29
+                de la Constitución:
+            </h2>
+
+            <label class="option">
+                <input type="radio" name="q10" value="a">
+                A) Podrá ejercerse siempre de forma colectiva por cualquier medio.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="b">
+                B) Los miembros de las Fuerzas o Institutos armados o de los
+                Cuerpos sometidos a disciplina militar podrán ejercerlo
+                colectivamente.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="c">
+                C) Los españoles tienen derecho de petición individual y
+                colectiva, por escrito, en la forma y con los efectos que
+                determine la ley.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="d">
+                D) Solo podrá ejercerse individualmente.
+            </label>
+
+            <div class="explanation">
+                <strong>Explicación:</strong>
+                El artículo 29.1 reconoce a todos los españoles el derecho de
+                petición individual y colectiva, por escrito. Sin embargo, el
+                apartado 2 establece una excepción para los miembros de las
+                Fuerzas o Institutos armados y cuerpos sometidos a disciplina
+                militar, que solo podrán ejercerlo individualmente.
+            </div>
+
+        </div>
+
+
+        <div class="actions">
+            <button type="button" id="corregirBtn" onclick="corregir()">
+                Corregir test
+            </button>
+        </div>
+
+    </form>
+
+
+    <!-- RESULTADO -->
+
+    <section id="result">
+
+        <h2>Resultado</h2>
+
+        <div class="score" id="score"></div>
+
+        <p id="percentage"></p>
+
+        <p id="details"></p>
+
+        <p id="message"></p>
+
+        <button type="button" onclick="location.reload()">
+            🔄 Repetir test
+        </button>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <a class="logo" href="https://danielgonzalezcarbonell.github.io/oposita-plus/">
+            OPOSITA<span>+</span>
+        </a>
+
+        <p>Tests y recursos gratuitos para opositores.</p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+const respuestasCorrectas = {
+    q1: "a",
+    q2: "b",
+    q3: "b",
+    q4: "c",
+    q5: "b",
+    q6: "c",
+    q7: "a",
+    q8: "b",
+    q9: "a",
+    q10: "c"
+};
+
+
+/* BARRA DE PROGRESO */
+
+const preguntas = document.querySelectorAll('input[type="radio"]');
+
+preguntas.forEach(function(pregunta){
+
+    pregunta.addEventListener("change", function(){
+
+        let contestadas = 0;
+
+        for(let i = 1; i <= 10; i++){
+
+            if(document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            )){
+                contestadas++;
+            }
+
+        }
+
+        const porcentaje = (contestadas / 10) * 100;
+
+        document.getElementById("progress-text").textContent =
+            contestadas + " / 10";
+
+        document.getElementById("progress-fill").style.width =
+            porcentaje + "%";
+
+    });
+
+});
+
+
+/* CORREGIR TEST */
+
+function corregir(){
+
+    let contestadas = 0;
+
+    for(let i = 1; i <= 10; i++){
+
+        if(document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        )){
+            contestadas++;
+        }
+
+    }
+
+
+    /* OBLIGAR A RESPONDER TODAS */
+
+    if(contestadas < 10){
+
+        alert(
+            "Debes responder las 10 preguntas antes de corregir el test."
+        );
+
+        return;
+    }
+
+
+    let puntuacion = 0;
+
+
+    /* CORRECCIÓN */
+
+    for(let i = 1; i <= 10; i++){
+
+        const pregunta = document.querySelector(
+            '.question-card[data-question="' + i + '"]'
+        );
+
+        const seleccionada = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        const correcta = respuestasCorrectas["q" + i];
+
+        const opciones = pregunta.querySelectorAll(".option");
+
+
+        opciones.forEach(function(opcion){
+
+            const input = opcion.querySelector("input");
+
+            opcion.classList.remove("correct");
+            opcion.classList.remove("wrong");
+
+
+            /* RESPUESTA CORRECTA */
+
+            if(input.value === correcta){
+
+                opcion.classList.add("correct");
+
+            }
+
+
+            /* RESPUESTA ELEGIDA INCORRECTA */
+
+            if(
+                seleccionada &&
+                input.value === seleccionada.value &&
+                input.value !== correcta
+            ){
+
+                opcion.classList.add("wrong");
+
+            }
+
+        });
+
+
+        if(seleccionada.value === correcta){
+
+            puntuacion++;
+
+        }
+
+
+        /* MOSTRAR EXPLICACIÓN */
+
+        const explanation =
+            pregunta.querySelector(".explanation");
+
+        explanation.classList.add("show");
+
+    }
+
+
+    /* RESULTADO */
+
+    const porcentaje = puntuacion * 10;
+
+    document.getElementById("score").textContent =
+        puntuacion + " / 10";
+
+    document.getElementById("percentage").textContent =
+        porcentaje + "% de aciertos";
+
+    document.getElementById("details").textContent =
+        "Has acertado " +
+        puntuacion +
+        " preguntas y has fallado " +
+        (10 - puntuacion) +
+        ".";
+
+
+    /* MENSAJE SEGÚN RESULTADO */
+
+    let mensaje = "";
+
+    if(puntuacion === 10){
+
+        mensaje =
+            "🏆 ¡Perfecto! Has conseguido un 10/10.";
+
+    }else if(puntuacion >= 8){
+
+        mensaje =
+            "🔥 ¡Muy buen resultado! Estás demostrando un gran dominio del tema.";
+
+    }else if(puntuacion >= 6){
+
+        mensaje =
+            "👍 Buen resultado. Repasa las preguntas falladas para seguir mejorando.";
+
+    }else if(puntuacion >= 5){
+
+        mensaje =
+            "📚 Resultado suficiente, pero todavía puedes mejorar. Repasa el tema.";
+
+    }else{
+
+        mensaje =
+            "💪 Sigue practicando. Revisa las explicaciones y vuelve a intentarlo.";
+
+    }
+
+
+    document.getElementById("message").textContent =
+        mensaje;
+
+
+    /* MOSTRAR RESULTADO */
+
+    document.getElementById("result").style.display =
+        "block";
+
+
+    /* DESACTIVAR RESPUESTAS */
+
+    preguntas.forEach(function(pregunta){
+
+        pregunta.disabled = true;
+
+    });
+
+
+    /* DESACTIVAR BOTÓN */
+
+    document.getElementById("corregirBtn").disabled =
+        true;
+
+
+    /* BAJAR AL RESULTADO */
+
+    document.getElementById("result").scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
