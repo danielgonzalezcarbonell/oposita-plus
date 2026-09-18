@@ -381,15 +381,21 @@ button:hover {
 
     </form>
 
-    <div id="result">
-        <h2>Resultado</h2>
-        <div class="score" id="score"></div>
-        <p id="message"></p>
+   <div id="result">
+    <h2>Resultado</h2>
 
-        <button type="button" onclick="location.reload()">
-            Repetir test
-        </button>
-    </div>
+    <div class="score" id="score"></div>
+
+    <p id="percentage"></p>
+
+    <p id="details"></p>
+
+    <p id="message"></p>
+
+    <button type="button" onclick="location.reload()">
+        🔄 Repetir test
+    </button>
+</div>
 
 </div>
 
@@ -484,7 +490,14 @@ function corregir() {
 
     document.getElementById("score").textContent =
         puntuacion + " / 10";
+const porcentaje = puntuacion * 10;
 
+document.getElementById("percentage").textContent =
+    porcentaje + "% de aciertos";
+
+document.getElementById("details").textContent =
+    "Has acertado " + puntuacion + " preguntas y has fallado " +
+    (10 - puntuacion) + ".";
     let mensaje = "";
 
     if (puntuacion === 10) {
