@@ -1,0 +1,941 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Test Poder Judicial | OPOSITA+</title>
+<meta name="description" content="Test de oposición sobre el Poder Judicial en la Constitución Española. 10 preguntas de dificultad alta.">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 0 auto;
+}
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e7;
+    padding: 22px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: #111;
+}
+
+.logo span {
+    color: #0071e3;
+}
+
+.back {
+    text-decoration: none;
+    color: #0071e3;
+    font-weight: 600;
+}
+
+.hero {
+    padding: 55px 0 35px;
+}
+
+.eyebrow {
+    color: #0071e3;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: clamp(34px, 6vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #6e6e73;
+    font-size: 17px;
+    max-width: 700px;
+}
+
+.progress-container {
+    margin: 25px 0 35px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: #6e6e73;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e5e7;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #0071e3;
+    transition: width 0.3s ease;
+}
+
+.question {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    border: 1px solid #e8e8ea;
+}
+
+.question-number {
+    color: #0071e3;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+}
+
+.question h2 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    border: 1px solid #d2d2d7;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all .2s ease;
+    background: #fff;
+}
+
+.option:hover {
+    border-color: #0071e3;
+    background: #f5faff;
+}
+
+.option input {
+    margin-top: 5px;
+    accent-color: #0071e3;
+}
+
+.option.correct {
+    background: #eaf8ef;
+    border-color: #34a853;
+}
+
+.option.wrong {
+    background: #fff0f0;
+    border-color: #e04444;
+}
+
+.explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 14px;
+    background: #f5f5f7;
+    color: #515154;
+    font-size: 14px;
+}
+
+.explanation strong {
+    color: #1d1d1f;
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 15px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #0071e3;
+    color: white;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    opacity: .9;
+}
+
+#result {
+    display: none;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 35px;
+    margin: 35px 0 60px;
+    text-align: center;
+    border: 1px solid #e5e5e7;
+    box-shadow: 0 8px 30px rgba(0,0,0,.06);
+}
+
+#result h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 54px;
+    font-weight: 800;
+    color: #0071e3;
+    margin: 10px 0;
+}
+
+.result-details {
+    color: #6e6e73;
+    margin-bottom: 20px;
+}
+
+.result-message {
+    margin: 15px auto 25px;
+    max-width: 600px;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0 45px;
+    color: #86868b;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px 0;
+    }
+
+    .hero {
+        padding: 40px 0 25px;
+    }
+
+    .question {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .question h2 {
+        font-size: 18px;
+    }
+
+    .option {
+        padding: 13px;
+    }
+
+    #result {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container header-content">
+        <a class="logo" href="https://danielgonzalezcarbonell.github.io/oposita-plus/">
+            OPOSITA<span>+</span>
+        </a>
+
+        <a class="back" href="https://danielgonzalezcarbonell.github.io/oposita-plus/">
+            ← Volver
+        </a>
+    </div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+    <p class="eyebrow">TEST 04 · PODER JUDICIAL</p>
+
+    <h1>Poder Judicial</h1>
+
+    <p>
+        10 preguntas de dificultad alta sobre el Título VI de la Constitución Española.
+        Pon a prueba tus conocimientos como en un examen de oposición.
+    </p>
+
+    <div class="progress-container">
+        <div class="progress-info">
+            <span>Progreso</span>
+            <span id="progressText">0 / 10</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </div>
+</section>
+
+<form id="quiz">
+
+<!-- PREGUNTA 1 -->
+<div class="question">
+    <div class="question-number">Pregunta 1</div>
+
+    <h2>
+        Según el artículo 117.1 de la Constitución, los Jueces y Magistrados integrantes del Poder Judicial son:
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q1" value="a">
+            <span>A. Independientes, responsables y sometidos únicamente al Gobierno.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="b">
+            <span>B. Independientes, inamovibles, responsables y sometidos únicamente al imperio de la ley.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="c">
+            <span>C. Independientes, electivos y sometidos al control del Parlamento.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="d">
+            <span>D. Inamovibles, irresponsables y sometidos exclusivamente a la Constitución.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: B.</strong>
+        El artículo 117.1 establece que los Jueces y Magistrados son independientes,
+        inamovibles, responsables y sometidos únicamente al imperio de la ley.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 2 -->
+<div class="question">
+    <div class="question-number">Pregunta 2</div>
+
+    <h2>
+        ¿A quién corresponde exclusivamente el ejercicio de la potestad jurisdiccional en todo tipo de procesos?
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q2" value="a">
+            <span>A. Al Gobierno y al Ministerio Fiscal.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="b">
+            <span>B. A las Cortes Generales.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="c">
+            <span>C. A los Juzgados y Tribunales determinados por las leyes.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="d">
+            <span>D. Al Consejo General del Poder Judicial.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: C.</strong>
+        El artículo 117.3 atribuye exclusivamente la potestad jurisdiccional a los
+        Juzgados y Tribunales determinados por las leyes.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 3 -->
+<div class="question">
+    <div class="question-number">Pregunta 3</div>
+
+    <h2>
+        El principio de unidad jurisdiccional, según el artículo 117.5 de la Constitución, es:
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q3" value="a">
+            <span>A. La base de la organización y funcionamiento de los Tribunales.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="b">
+            <span>B. Un principio aplicable únicamente a la jurisdicción civil.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="c">
+            <span>C. Un principio que puede ser sustituido por las Comunidades Autónomas.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="d">
+            <span>D. Una regla exclusiva de la jurisdicción militar.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: A.</strong>
+        El artículo 117.5 establece literalmente que el principio de unidad jurisdiccional
+        es la base de la organización y funcionamiento de los Tribunales.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 4 -->
+<div class="question">
+    <div class="question-number">Pregunta 4</div>
+
+    <h2>
+        Según el artículo 120.3 de la Constitución, las sentencias:
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q4" value="a">
+            <span>A. Serán siempre públicas, pero no necesariamente motivadas.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="b">
+            <span>B. Serán siempre motivadas y se pronunciarán en audiencia pública.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="c">
+            <span>C. Serán motivadas únicamente en los procesos penales.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="d">
+            <span>D. Se pronunciarán siempre en sesión privada.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: B.</strong>
+        El artículo 120.3 establece que las sentencias serán siempre motivadas y se
+        pronunciarán en audiencia pública.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 5 -->
+<div class="question">
+    <div class="question-number">Pregunta 5</div>
+
+    <h2>
+        ¿Qué órgano es definido expresamente por la Constitución como órgano de gobierno del Poder Judicial?
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q5" value="a">
+            <span>A. El Tribunal Supremo.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="b">
+            <span>B. El Ministerio Fiscal.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="c">
+            <span>C. El Consejo General del Poder Judicial.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="d">
+            <span>D. El Tribunal Constitucional.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: C.</strong>
+        El artículo 122.2 establece expresamente que el Consejo General del Poder Judicial
+        es el órgano de gobierno del mismo.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 6 -->
+<div class="question">
+    <div class="question-number">Pregunta 6</div>
+
+    <h2>
+        Según el artículo 122.3, ¿cuál es la duración del mandato de los miembros del Consejo General del Poder Judicial?
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q6" value="a">
+            <span>A. Tres años.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q6" value="b">
+            <span>B. Cuatro años.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q6" value="c">
+            <span>C. Cinco años.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q6" value="d">
+            <span>D. Seis años.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: C.</strong>
+        El artículo 122.3 establece que los veinte miembros del CGPJ son nombrados
+        por el Rey por un período de cinco años.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 7 -->
+<div class="question">
+    <div class="question-number">Pregunta 7</div>
+
+    <h2>
+        Según el artículo 123.1, el Tribunal Supremo es:
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q7" value="a">
+            <span>A. El órgano jurisdiccional superior exclusivamente en materia penal.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q7" value="b">
+            <span>B. El órgano jurisdiccional superior en todos los órdenes, salvo lo dispuesto en materia de garantías constitucionales.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q7" value="c">
+            <span>C. El órgano superior de gobierno del Poder Judicial.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q7" value="d">
+            <span>D. El órgano encargado de garantizar la supremacía de la Constitución.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: B.</strong>
+        El artículo 123.1 define al Tribunal Supremo, con jurisdicción en toda España,
+        como el órgano jurisdiccional superior en todos los órdenes, salvo en materia
+        de garantías constitucionales.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 8 -->
+<div class="question">
+    <div class="question-number">Pregunta 8</div>
+
+    <h2>
+        ¿Quién propone al Rey el nombramiento del Fiscal General del Estado?
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q8" value="a">
+            <span>A. El Consejo General del Poder Judicial.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q8" value="b">
+            <span>B. El Tribunal Supremo.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q8" value="c">
+            <span>C. El Gobierno, oído el Consejo General del Poder Judicial.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q8" value="d">
+            <span>D. Las Cortes Generales por mayoría absoluta.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: C.</strong>
+        El artículo 124.4 establece que el Fiscal General del Estado será nombrado
+        por el Rey, a propuesta del Gobierno, oído el Consejo General del Poder Judicial.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 9 -->
+<div class="question">
+    <div class="question-number">Pregunta 9</div>
+
+    <h2>
+        Según el artículo 126, la Policía Judicial depende de:
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q9" value="a">
+            <span>A. Exclusivamente del Ministerio del Interior.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q9" value="b">
+            <span>B. Los Jueces, los Tribunales y el Ministerio Fiscal en sus funciones de investigación del delito y aseguramiento del delincuente.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q9" value="c">
+            <span>C. Exclusivamente del Consejo General del Poder Judicial.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q9" value="d">
+            <span>D. Del Tribunal Constitucional.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: B.</strong>
+        El artículo 126 establece que la Policía Judicial depende de los Jueces,
+        de los Tribunales y del Ministerio Fiscal en sus funciones de averiguación
+        del delito y descubrimiento y aseguramiento del delincuente.
+    </div>
+</div>
+
+
+<!-- PREGUNTA 10 -->
+<div class="question">
+    <div class="question-number">Pregunta 10</div>
+
+    <h2>
+        Mientras se hallen en activo, los Jueces, Magistrados y Fiscales:
+    </h2>
+
+    <div class="options">
+
+        <label class="option">
+            <input type="radio" name="q10" value="a">
+            <span>A. Pueden pertenecer a partidos políticos si no ocupan cargos públicos.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q10" value="b">
+            <span>B. Pueden pertenecer a sindicatos, pero no a partidos políticos.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q10" value="c">
+            <span>C. No pueden pertenecer a partidos políticos o sindicatos.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q10" value="d">
+            <span>D. Pueden desempeñar otros cargos públicos siempre que sean compatibles.</span>
+        </label>
+
+    </div>
+
+    <div class="explanation">
+        <strong>Respuesta correcta: C.</strong>
+        El artículo 127.1 establece que los Jueces y Magistrados, así como los Fiscales,
+        mientras estén en activo, no podrán desempeñar otros cargos públicos ni pertenecer
+        a partidos políticos o sindicatos.
+    </div>
+</div>
+
+<button type="button" onclick="corregirTest()">
+    Corregir test
+</button>
+
+</form>
+
+
+<section id="result">
+
+    <h2>Resultado</h2>
+
+    <div class="score">
+        <span id="score">0</span>/10
+    </div>
+
+    <div class="result-details">
+        <span id="correctCount">0</span> correctas ·
+        <span id="wrongCount">0</span> incorrectas ·
+        <span id="percentage">0%</span>
+    </div>
+
+    <p class="result-message" id="resultMessage"></p>
+
+    <button type="button" onclick="location.reload()">
+        Repetir test
+    </button>
+
+</section>
+
+</main>
+
+
+<footer>
+    © 2026 OPOSITA+ · Tests gratuitos para preparar oposiciones
+</footer>
+
+
+<script>
+
+const respuestasCorrectas = {
+    q1: "b",
+    q2: "c",
+    q3: "a",
+    q4: "b",
+    q5: "c",
+    q6: "c",
+    q7: "b",
+    q8: "c",
+    q9: "b",
+    q10: "c"
+};
+
+
+const preguntas = document.querySelectorAll(".question");
+const totalPreguntas = preguntas.length;
+
+
+document.querySelectorAll('input[type="radio"]').forEach(input => {
+
+    input.addEventListener("change", actualizarProgreso);
+
+});
+
+
+function actualizarProgreso() {
+
+    let respondidas = 0;
+
+    for (let i = 1; i <= totalPreguntas; i++) {
+
+        const respuesta = document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
+
+        if (respuesta) {
+            respondidas++;
+        }
+    }
+
+    const porcentaje = (respondidas / totalPreguntas) * 100;
+
+    document.getElementById("progress").style.width =
+        porcentaje + "%";
+
+    document.getElementById("progressText").textContent =
+        respondidas + " / " + totalPreguntas;
+}
+
+
+function corregirTest() {
+
+    let correctas = 0;
+    let respondidas = 0;
+
+    for (let i = 1; i <= totalPreguntas; i++) {
+
+        const pregunta = document.querySelector(
+            `.question:nth-of-type(${i})`
+        );
+
+        const respuesta = document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
+
+        if (respuesta) {
+            respondidas++;
+        }
+
+    }
+
+    if (respondidas < totalPreguntas) {
+
+        alert(
+            "Debes responder todas las preguntas antes de corregir el test."
+        );
+
+        return;
+    }
+
+
+    for (let i = 1; i <= totalPreguntas; i++) {
+
+        const pregunta = preguntas[i - 1];
+
+        const respuestaSeleccionada = document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
+
+        const opciones = pregunta.querySelectorAll(".option");
+
+        opciones.forEach(opcion => {
+
+            opcion.classList.remove("correct", "wrong");
+
+            const input = opcion.querySelector("input");
+
+            if (input.value === respuestasCorrectas[`q${i}`]) {
+                opcion.classList.add("correct");
+            }
+
+            if (
+                input.checked &&
+                input.value !== respuestasCorrectas[`q${i}`]
+            ) {
+                opcion.classList.add("wrong");
+            }
+
+        });
+
+
+        if (
+            respuestaSeleccionada.value ===
+            respuestasCorrectas[`q${i}`]
+        ) {
+            correctas++;
+        }
+
+        pregunta.querySelector(".explanation").style.display = "block";
+    }
+
+
+    const incorrectas = totalPreguntas - correctas;
+    const porcentaje = correctas * 10;
+
+
+    document.getElementById("score").textContent =
+        correctas;
+
+    document.getElementById("correctCount").textContent =
+        correctas;
+
+    document.getElementById("wrongCount").textContent =
+        incorrectas;
+
+    document.getElementById("percentage").textContent =
+        porcentaje + "%";
+
+
+    let mensaje = "";
+
+    if (correctas === 10) {
+
+        mensaje =
+            "🔥 ¡Perfecto! Dominas el Poder Judicial a nivel de oposición.";
+
+    } else if (correctas >= 8) {
+
+        mensaje =
+            "💪 ¡Muy buen resultado! Tienes un nivel sólido, pero sigue repasando los detalles.";
+
+    } else if (correctas >= 5) {
+
+        mensaje =
+            "📚 Buen comienzo. Repasa los artículos del Título VI y vuelve a intentarlo.";
+
+    } else {
+
+        mensaje =
+            "🚀 Necesitas repasar el tema. Estudia los artículos 117 a 127 y vuelve a realizar el test.";
+
+    }
+
+
+    document.getElementById("resultMessage").textContent =
+        mensaje;
+
+
+    document.getElementById("result").style.display =
+        "block";
+
+
+    document.getElementById("result").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
